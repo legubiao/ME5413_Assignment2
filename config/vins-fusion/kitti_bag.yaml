@@ -7,7 +7,7 @@ num_of_cam: 2
 imu_topic: "/kitti/oxts/imu"
 image0_topic: "/kitti/camera_gray_left/image_raw"
 image1_topic: "/kitti/camera_gray_right/image_raw"
-output_path: "/home/tony-ws1/output/"
+output_path: "~/output/"
 
 cam0_calib: "cam_09_30.yaml"
 cam1_calib: "cam_09_30.yaml"
@@ -15,7 +15,7 @@ image_width: 1226
 image_height: 370
 
 # Extrinsic parameter between IMU and Camera.
-estimate_extrinsic: 1   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
+estimate_extrinsic: 0   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
                         # 1  Have an initial guess about extrinsic parameters. We will optimize around your initial guess.
 
 body_T_cam0: !!opencv-matrix
