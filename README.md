@@ -9,10 +9,10 @@
 launch command 
 
 ```
-roslaunch me5413 ME5413.launch bag_filename:=${HOME}/2dlidar.bag
+roslaunch me5413 task1.launch bag_filename:=${HOME}/下载/2dlidar.bag
 ```
 
-### Task 2
+### Task 2 Fast-LIO
 clone fast-lio to src folder and compile
 ```
 cd ~/catkin_ws/src
@@ -26,13 +26,9 @@ catkin_make
 source devel/setup.bash
 ```
 
-launch fast-lio
+launch fast-lio and play rosbag
 ```
-roslaunch me5413 task2_fastlio.launch
-```
-play kitti rosbag
-```
-rosbag play ~/have_fun.bag
+roslaunch me5413 task2_fastlio.launch bag_filename:=${HOME}/下载/have_fun.bag
 ```
 
 get lidar rotation and transformation in imu link
@@ -43,3 +39,16 @@ record rosbag
 ```
 rosbag record /Odometry /tf /tf_static
 ```
+
+### Task 2 VINS-Fusion
+
+clone vins-fusion to src folder and compile
+
+```
+cd ~/catkin_ws/src
+git clone https://github.com/guisoares9/VINS-Fusion
+
+cd ..
+catkin_make -DCATKIN_WHITELIST_PACKAGES="vins"
+```
+
