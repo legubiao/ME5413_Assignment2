@@ -72,9 +72,13 @@ rosbag record /vins_estimator/odometry /vins_estimator/point_cloud /vins_estimat
 
 ### Task 2 Coordinate transformation code
 from_odometry_output_kitti.py:
+
 Change "/aft_mapped_to_init_high_frec" to the topic that needs to be subscribed to odometry.
+
 Change "camera_gray_left" to the coordinate system node which groundtruth is located.
+
 Change "velo_link" to the coordinate system node which the odometry result is located.
+
 Run the py program in the bag and play the bag containing odometry and tf topics. The code will convert the odometry results into the coordinate system where the groundtruth node is located, and output the txt file of kitti format coordinates in the same directory.
 
 
