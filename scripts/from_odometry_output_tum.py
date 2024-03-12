@@ -104,7 +104,7 @@ def listener():
 if __name__ == '__main__':
     global f
     # Open file to write output
-    f = open("/home/yanqiao/Downloads/Task2/lego_tum.txt", "w")
+    f = open("/lego_tum.txt", "w")
     print("Start program")
     listener()
     f.close()
