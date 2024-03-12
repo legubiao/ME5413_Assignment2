@@ -79,7 +79,7 @@ Change "camera_gray_left" to the coordinate system node which groundtruth is loc
 
 Change "velo_link" to the coordinate system node which the odometry result is located.
 
-Run the py program in the bag and play the bag containing odometry and tf topics. The code will convert the odometry results into the coordinate system where the groundtruth node is located, and output the txt file of kitti format coordinates in the same directory.
+Run the py program in the bag and play another bag containing odometry and tf topics. The code will convert the odometry results into the coordinate system where the groundtruth node is located, and output the txt file of kitti format coordinates in the same directory.
 
 
 ### Task 2 Eveluation recorded rosbag
