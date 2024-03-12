@@ -38,9 +38,9 @@ class OdomToTUM:
         pose = geometry_msgs.msg.PoseStamped()
         pose.header = msg.header
         pose.pose = msg.pose.pose
-        pose.pose.position.x += trans.x
-        pose.pose.position.y += trans.y
-        pose.pose.position.z += trans.z
+        pose.pose.position.x -= trans.x
+        pose.pose.position.y -= trans.y
+        pose.pose.position.z -= trans.z
         quaternion = (
             pose.pose.orientation.x,
             pose.pose.orientation.y,
@@ -48,7 +48,7 @@ class OdomToTUM:
             pose.pose.orientation.w
         )
         euler = tft.euler_from_quaternion((rot.x, rot.y, rot.z, rot.w))
-        q_rot = tft.quaternion_from_euler(-euler[0], -euler[1], -euler[2])
+        q_rot = tft.quaternion_from_euler(euler[0], euler[1], euler[2])
         q_pose = tft.quaternion_multiply(quaternion, q_rot)
         pose.pose.orientation = geometry_msgs.msg.Quaternion(*q_pose)
 

@@ -7,7 +7,7 @@ catkin_make -DCATKIN_WHITELIST_PACKAGES="me5413"
 
 ## Assignment 2
 
-### task 1
+### Task 1 Cartographer
 
 launch command 
 
@@ -28,16 +28,18 @@ cd ../..
 catkin_make
 source devel/setup.bash
 ```
-
-launch fast-lio and play rosbag
-```
-roslaunch me5413 task2_fastlio.launch bag_filename:=${HOME}/下载/have_fun.bag
-```
-
 get lidar rotation and transformation in imu link
 ```
 rosrun tf tf_echo imu_link velo_link
 ```
+
+launch fast-lio and play rosbag
+```
+roslaunch me5413 task2_fastlio.launch
+rosbag play --clock YOUR_ROSBAG_FILE
+```
+
+
 record rosbag
 ```
 rosbag record /Odometry /tf /tf_static
@@ -67,11 +69,17 @@ record rosbag
 rosbag record /vins_estimator/odometry /vins_estimator/point_cloud /vins_estimator/camera_pose /tf /tf_static
 ```
 
-### eveluation bag
+### Task 2 Eveluation recorded rosbag
+run python script read data from rosbag directly
 ```
 roscd me5413
 
 python scripts/read_tum_from_rosbag.py '/home/biao/catkin_ws/src/ME5413_AMR/output/task2/fast_lio.bag' --topic /Odometry
 
 evo_ape tum have_fun_tum.txt odom_tum.txt -r full --plot --plot_mode xz
+```
+or, run the node and play rosbag
+```
+rosrun me5413 record_tum.py
+rosbag play YOUR_ROSBAG_FILE
 ```
